@@ -1,6 +1,6 @@
-package org.jetbrains.plugins.template.services
+package com.github.dibyah.zscaleriacjetbrainsplugin.services
 
-import org.jetbrains.plugins.template.MyBundle
+import com.github.dibyah.zscaleriacjetbrainsplugin.MyBundle
 
 class MyApplicationService {
 
