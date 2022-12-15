@@ -30,6 +30,20 @@ kotlin {
     }
 }
 
+dependencies {
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.okhttp3:okhttp:4.10.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
+    // https://mvnrepository.com/artifact/com.squareup.retrofit2/converter-jackson
+    implementation("com.squareup.retrofit2:converter-jackson:2.9.0")
+
+    // https://mvnrepository.com/artifact/com.squareup.retrofit2/converter-scalars
+    implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
+// https://mvnrepository.com/artifact/org.codehaus.plexus/plexus-utils
+    implementation("org.codehaus.plexus:plexus-utils:3.0")
+
+}
+
 // Configure Gradle IntelliJ Plugin - read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
     pluginName.set(properties("pluginName"))

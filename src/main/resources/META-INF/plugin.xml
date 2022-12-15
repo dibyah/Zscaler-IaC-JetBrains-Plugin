@@ -1,18 +1,37 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.dibyah.zscaleriacjetbrainsplugin</id>
-    <name>Zscaler-IaC-dibyah-Plugin</name>
+    <id>com.zscaler.IacScanPlugin</id>
+    <name>Zscaler-IaC-Scan</name>
     <vendor>dibyah</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.dibyah.zscaleriacjetbrainsplugin.services.MyApplicationService"/>
+        <httpRequestHandler implementation="com.zscaler.services.RestService"/>
+        <!--<applicationService serviceImplementation="com.github.dibyah.zscaleriacjetbrainsplugin.services.MyApplicationService"/>
         <projectService serviceImplementation="com.github.dibyah.zscaleriacjetbrainsplugin.services.MyProjectService"/>
+        <httpRequestHandler implementation="com.github.dibyah.zscaleriacjetbrainsplugin.BrowserRedirectListener"/>
+   -->
+        <toolWindow
+                factoryClass="com.zscaler.ui.ToolWindowFactoryImpl"
+                id="Zscanner" anchor="bottom" icon="/icons/zscaler_logo.svg"/>
+        
+        <postStartupActivity implementation="com.zscaler.activities.PostStartupActivity"/>
+        <applicationService serviceImplementation="com.zscaler.settings.SettingState"/>
+
     </extensions>
 
-    <applicationListeners>
+    <actions>
+        <!--<group id="Zscaler-IaC-dibyah.HelloAction" text="Zscaler-IaC-dibyah" description="Zscaler-IaC-dibyah">
+            <add-to-group group-id="MainMenu" anchor="last"/>
+            &lt;!&ndash;action class="com.github.dibyah.zscaleriacjetbrainsplugin.HelloAction" id="Zscaler-IaC-dibyah.Actions.HelloAction" text="Say Hello"/&ndash;&gt;
+            <action class="com.github.dibyah.zscaleriacjetbrainsplugin.LoginAction" id="Zscaler-IaC-dibyah.Actions.com.github.dibyah.zscaleriacjetbrainsplugin.LoginAction" text="Login"/>
+        </group>-->
+        <action class="com.zscaler.actions.AuthAction" id="AuthAction" text="AuthAction" description="Auth"/>
+    </actions>
+
+    <!--applicationListeners>
         <listener class="com.github.dibyah.zscaleriacjetbrainsplugin.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
+    </applicationListeners-->
 </idea-plugin>
